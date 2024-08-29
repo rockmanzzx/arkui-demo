@@ -149,6 +149,31 @@
           "description": "jQuery 是一个 JavaScript 库。 jQuery..."
         }
       ]
+    },
+    {
+      "title": "前端框架",
+      "projects": []
+    },
+    {
+      "title": "后端语言",
+      "projects": []
+    },
+    {
+      "title": "开发框架",
+      "projects": []
+    },
+    {
+      "title": "数据库",
+      "projects": []
+    },
+    {
+      "title": "移动开发",
+      "projects": []
+    },
+    {
+      "title": "服务器相关",
+      "projects": []
     }
   ]
+
 }

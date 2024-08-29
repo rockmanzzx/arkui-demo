@@ -7,15 +7,9 @@ import buffer from '@ohos.buffer';
 
 import {Model, Category, Project} from '../model/Model'
 
-interface ContentItem {
-  title: string;
-  description: string;
-  icon: Resource;
-}
-
 @Entry
 @Component
-struct Test {
+struct ClassPage {
   @State selectedCategory: Category = new Category();
   @State dataSource: Category[] = [];
 
@@ -38,12 +32,13 @@ struct Test {
   }
 
   build() {
+
     Row() {
-      List({ space: 10, initialIndex: 0 }) {
+      List({ space: 10 }) {
         ForEach(this.dataSource, (category: Category, index: number) => {
           ListItem() {
             Text(category.title)
-              .fontSize(16)
+              .fontSize(18)
               .fontWeight(this.selectedCategory.title == category.title? FontWeight.Bold : FontWeight.Normal)
               .padding(10)
               .height(60)
@@ -59,7 +54,7 @@ struct Test {
       .height('100%')
       .backgroundColor('#f1f1f1')
 
-      List({ space: 10, initialIndex: 0}) {
+      List({ space: 10}) {
         ForEach(this.selectedCategory.projects, (project: Project, index: number) => {
           ListItem() {
             Flex({ alignItems: ItemAlign.Center, justifyContent: FlexAlign.Start }) {
@@ -83,15 +78,10 @@ struct Test {
             .width('100%')
           }
           .onClick(() => {
-            router.pushUrl({
-              url: 'pages/DetailPage',
-              params: {
-                title: project.title,
-                description: project.description
-              }
-            });
+            // this.pageStack.pushPathByName('DetailPage', project)
+            router.pushUrl({url: 'pages/DetailPage', params: project})
           })
-        }, (item: ContentItem) => item.title)
+        }, (project: Project) => project.title)
       }
       .width('70%')
       .height('100%')
@@ -103,26 +93,4 @@ struct Test {
   }
 }
 
-// @Entry
-// @Component
-// struct DetailPage {
-//   private title: string = router.getParams()['title'];
-//   private description: string = router.getParams()['description'];
-//
-//   build() {
-//     Column() {
-//       Text(this.title)
-//         .fontSize(24)
-//         .fontWeight(FontWeight.Bold)
-//         .margin({ top: 20, bottom: 10 })
-//       Text(this.description)
-//         .fontSize(16)
-//         .margin(10)
-//     }
-//     .width('100%')
-//     .height('100%')
-//     .backgroundColor(Color.White)
-//   }
-// }
-
-export default Test;
+export default ClassPage;

@@ -1,9 +1,8 @@
-import Test from './Test'
-import MenuList from './MenuList'
+import Test from './ClassPage'
 
 @Entry
 @Component
-struct Tabbar {
+struct TabBarPage {
   build() {
     Tabs({ barPosition: BarPosition.End }) {
       TabContent() {
@@ -12,8 +11,7 @@ struct Tabbar {
       .tabBar('首页')
 
       TabContent() {
-        // Text('推荐的内容').fontSize(30)
-        MenuList()
+        Text('推荐的内容').fontSize(30)
       }
       .tabBar('推荐')
 
