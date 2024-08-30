@@ -1,4 +1,4 @@
-import Test from './ClassPage'
+import ClassPage from './ClassPage'
 
 @Entry
 @Component
@@ -6,7 +6,7 @@ struct TabBarPage {
   build() {
     Tabs({ barPosition: BarPosition.End }) {
       TabContent() {
-        Test()
+        ClassPage()
       }
       .tabBar('首页')
 

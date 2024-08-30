@@ -34,7 +34,7 @@ struct ClassPage {
   build() {
 
     Row() {
-      List({ space: 10 }) {
+      List({ space: 10}) {
         ForEach(this.dataSource, (category: Category, index: number) => {
           ListItem() {
             Text(category.title)
@@ -54,7 +54,7 @@ struct ClassPage {
       .height('100%')
       .backgroundColor('#f1f1f1')
 
-      List({ space: 10}) {
+      List({ space: 10 }) {
         ForEach(this.selectedCategory.projects, (project: Project, index: number) => {
           ListItem() {
             Flex({ alignItems: ItemAlign.Center, justifyContent: FlexAlign.Start }) {
